@@ -18,7 +18,7 @@ RUN cd app && CGO_ENABLED=0 go build -o reproxy -ldflags "-w -s"
 
 FROM scratch
 
-COPY --chown=65532 --from=builder /app/reproxy/app/reproxy /app/reproxy
+COPY --from=builder /app/reproxy/app/reproxy /app/reproxy
 
 EXPOSE 8080/tcp
 EXPOSE 8443/tcp
